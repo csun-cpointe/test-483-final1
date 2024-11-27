@@ -1,8 +1,8 @@
 spec:
   destination:
     server: https://kubernetes.default.svc
-  targetRevision: dev
-  repo: https://github.com/csun-cpointe/test-483-final.git
+  targetRevision: main
+  repo: https://github.com/csun-cpointe/test-483-final1.git
   helm:
     valueFiles:
       - values.yaml
