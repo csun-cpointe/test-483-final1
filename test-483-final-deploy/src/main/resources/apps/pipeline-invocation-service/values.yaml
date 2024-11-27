@@ -1,0 +1,8 @@
+# Directory in which to look for SparkApplication values files representing the available pipeline configurations
+# available for execution                                     |
+valuesFileDirectory: "target/"
+
+aissemble-pipeline-invocation-chart:
+  aissemble-quarkus-chart:
+    app:
+      name: "pipeline-invocation-service"

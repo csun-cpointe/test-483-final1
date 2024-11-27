@@ -1,0 +1,11 @@
+#################################################################################
+## CONFIG | S3 Local Configs                                                      ##
+## See aiSSEMBLE aissemble-localstack-chart: README for more details.             ##
+## https://github.com/boozallen/aissemble/                           ##
+#################################################################################
+
+aissemble-localstack-chart:
+  buckets:
+    - name: spark-infrastructure
+      keys:
+        - warehouse/

@@ -1,0 +1,27 @@
+########################################
+## CONFIG | Configuration Store Configs
+## See aiSSEMBLE aissemble-configuration-store-chart: README for more details.
+## https://github.com/boozallen/aissemble/
+########################################
+
+aissemble-configuration-store-chart:
+  aissemble-quarkus-chart:
+    app:
+      name: "configuration-store"
+    deployment:
+      env:
+        - name: BASE_PROPERTY
+          value: /configurations/base
+        - name: ENVIRONMENT_PROPERTY
+          value: /configurations/env
+      supplementalVolumes:
+        - name: configurations
+          persistentVolumeClaim:
+            claimName: configuration-store-claim
+      supplementalVolumeMounts:
+        - name: configurations
+          mountPath: "/configurations"
+
+  configurationVolume:
+    storageType: "custom"
+    storageClass: ""

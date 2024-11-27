@@ -1,0 +1,9 @@
+apiVersion: v2
+name: "test-483-final"
+version: "1.0.0-SNAPSHOT"
+appVersion: "1.0.0-SNAPSHOT"
+
+dependencies:
+  - name: aissemble-infrastructure-chart
+    version: 1.11.0-SNAPSHOT
+    repository: oci://ghcr.io/boozallen
