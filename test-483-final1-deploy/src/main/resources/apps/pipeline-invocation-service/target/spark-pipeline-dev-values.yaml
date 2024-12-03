@@ -1,5 +1,5 @@
 metadata:
-    namespace: test-483-final
+    namespace: test-483-final1
 sparkApp:
     spec:
       image: "test-483-final1-spark-worker-docker:1.0.0-SNAPSHOT"
