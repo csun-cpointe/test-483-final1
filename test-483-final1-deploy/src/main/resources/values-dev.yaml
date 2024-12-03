@@ -1,0 +1,11 @@
+spec:
+  syncPolicy:
+    automated:
+      prune: true
+  helm:
+    valueFiles:
+      - values.yaml
+      - values-dev.yaml
+
+# for local deployment, use s3-local secret
+s3LocalEnabled: true

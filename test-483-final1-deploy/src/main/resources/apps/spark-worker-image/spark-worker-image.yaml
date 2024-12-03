@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: spark-worker-image
+  namespace: default
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      containers:
+        - name: spark-worker-image
+          image: test-483-final1-spark-worker-docker
+          command: ["echo"]
+      restartPolicy: Never

@@ -1,0 +1,9 @@
+dependencies:
+- name: aissemble-pipeline-invocation-chart
+  repository: oci://ghcr.io/boozallen
+  version: 1.11.0-SNAPSHOT
+- name: aissemble-pipeline-invocation-lib-chart
+  repository: oci://ghcr.io/boozallen
+  version: 1.11.0-SNAPSHOT
+digest: sha256:8106428622717ab4a0ebe1fa193545d8968bbecd2ff70646385c599a74e716e3
+generated: "2024-12-03T12:13:03.763094-08:00"

@@ -1,0 +1,18 @@
+metadata:
+    namespace: test-483-final
+sparkApp:
+    spec:
+      image: "test-483-final1-spark-worker-docker:1.0.0-SNAPSHOT"
+      sparkConf:
+        spark.eventLog.enabled: "true"
+        spark.sql.extensions: "io.delta.sql.DeltaSparkSessionExtension"
+        spark.sql.catalog.spark_catalog: "org.apache.spark.sql.delta.catalog.DeltaCatalog"
+        spark.hadoop.fs.s3a.endpoint: "http://s3-local:4566"
+        spark.eventLog.dir: "/opt/spark/spark-events"
+        spark.hive.metastore.warehouse.dir: "s3a://spark-infrastructure/warehouse"
+      driver:
+        cores: 1
+        memory: "2048m"
+      executor:
+        cores: 1
+        memory: "2048m"

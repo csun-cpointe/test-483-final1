@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  #%L
+  Verify 1.11.0-SNAPSHOT Release::Pipelines::Spark Pipeline
+  %%
+  Copyright (C) 2021 Booz Allen
+  %%
+  All Rights Reserved. You may not copy, reproduce, distribute, publish, display,
+  execute, modify, create derivative works of, transmit, sell or offer for resale,
+  or in any way exploit any part of this solution without Booz Allen Hamilton's
+  express written permission.
+  #L%
+  -->
+
+<!-- Originally generated from: templates/beans.xml.vm -->
+<beans xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/beans_1_1.xsd"
+       version="1.1" bean-discovery-mode="annotated">       
+
+</beans>

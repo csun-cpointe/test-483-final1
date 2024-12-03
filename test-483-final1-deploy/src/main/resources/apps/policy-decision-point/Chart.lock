@@ -1,0 +1,6 @@
+dependencies:
+- name: aissemble-policy-decision-point-chart
+  repository: oci://ghcr.io/boozallen
+  version: 1.11.0-SNAPSHOT
+digest: sha256:fcd350a547868c081b6c30f7660ca862ee2754ecb98f88957715c5b01248aaf5
+generated: "2024-12-03T12:04:48.176647-08:00"

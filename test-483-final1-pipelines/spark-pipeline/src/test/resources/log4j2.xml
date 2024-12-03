@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  #%L
+  Verify 1.11.0-SNAPSHOT Release::Pipelines::Spark Pipeline
+  %%
+  Copyright (C) 2021 Booz Allen
+  %%
+  All Rights Reserved. You may not copy, reproduce, distribute, publish, display,
+  execute, modify, create derivative works of, transmit, sell or offer for resale,
+  or in any way exploit any part of this solution without Booz Allen Hamilton's
+  express written permission.
+  #L%
+  -->
+
+<Configuration>
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="%highlight{%d{HH:mm:ss.SSS} [%t] %-5level %logger{36}.%M():%L - %msg%n}{FATAL=red blink, ERROR=red, WARN=yellow bold, INFO=grey, DEBUG=green bold, TRACE=blue}" />
+		</Console>
+	</Appenders>
+	<Loggers>
+		<Logger name="com.boozallen.aiops" level="debug" additivity="false ">
+			<AppenderRef ref="Console" />
+		</Logger>
+		<Logger name="org.test" level="debug" additivity="false ">
+			<AppenderRef ref="Console" />
+		</Logger>
+		<Root level="warn">
+			<AppenderRef ref="Console" />
+		</Root>
+	</Loggers>
+</Configuration>

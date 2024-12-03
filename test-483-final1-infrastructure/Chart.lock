@@ -1,0 +1,6 @@
+dependencies:
+- name: aissemble-infrastructure-chart
+  repository: oci://ghcr.io/boozallen
+  version: 1.11.0-SNAPSHOT
+digest: sha256:d82de3a0bbca6f0611a815a8fc9eeb17cbca1d43b800776073db7ee1f135f873
+generated: "2024-12-03T12:00:03.994362-08:00"

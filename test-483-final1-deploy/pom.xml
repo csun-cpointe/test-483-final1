@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.test</groupId>
+        <artifactId>test-483-final1</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>test-483-final1-deploy</artifactId>
+    <name>Verify 1.11.0-SNAPSHOT Release::Deploy</name>
+    <description>Contains the deployment artifacts for Verify 1.11.0-SNAPSHOT Release</description>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.technologybrewery.fermenter</groupId>
+                <artifactId>fermenter-mda</artifactId>
+                <configuration>
+                    <profile>deploy</profile>
+                    <propertyVariables>
+                        <aissembleVersion>${version.aissemble}</aissembleVersion>
+                        <dockerProjectRepositoryUrl>${docker.project.repository.url}</dockerProjectRepositoryUrl>
+                    </propertyVariables>
+                    <metadataDependencies>
+                        <metadataDependency>test-483-final1-pipeline-models</metadataDependency>
+                    </metadataDependencies>
+                    <targetModelInstances>
+                        <targetModelInstance>test-483-final1-pipeline-models</targetModelInstance>
+                    </targetModelInstances>
+                </configuration>
+                <executions>
+                    <execution>
+                        <!-- Have to override default execution in parent pom as it expects a default base package to be set.
+                        Since we want to execute each time with a different profile we don't want anything defined here.-->
+                        <id>generate-sources</id>
+                        <phase>none</phase>
+                    </execution>
+                    <execution>
+                        <id>kafka-cluster</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate-sources</goal>
+                        </goals>
+                        <configuration>
+                            <basePackage>com.boozallen</basePackage>
+                            <profile>kafka-deploy-v2</profile>
+                            <!-- The property variables below are passed to the Generation Context and utilized
+                                             to customize the deployment artifacts. -->
+                            <propertyVariables>
+                                <appName>kafka-cluster</appName>
+                            </propertyVariables>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>spark-worker-image</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate-sources</goal>
+                        </goals>
+                        <configuration>
+                            <basePackage>org.test</basePackage>
+                            <profile>aissemble-spark-worker-deploy</profile>
+                            <!-- The property variables below are passed to the Generation Context and utilized
+                                 to customize the deployment artifacts. -->
+                            <propertyVariables>
+                                <appName>spark-worker-image</appName>
+                            </propertyVariables>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>spark-operator</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate-sources</goal>
+                        </goals>
+                        <configuration>
+                            <basePackage>org.test</basePackage>
+                            <profile>aissemble-spark-operator-deploy-v2</profile>
+                            <!-- The property variables below are passed to the Generation Context and utilized
+                                 to customize the deployment artifacts. -->
+                            <propertyVariables>
+                                <appName>spark-operator</appName>
+                            </propertyVariables>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>spark-infrastructure</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate-sources</goal>
+                        </goals>
+                        <configuration>
+                            <basePackage>org.test</basePackage>
+                            <profile>aissemble-spark-infrastructure-deploy-v2</profile>
+                            <!-- The property variables below are passed to the Generation Context and utilized
+                                 to customize the deployment artifacts. -->
+                            <propertyVariables>
+                                <appName>spark-infrastructure</appName>
+                            </propertyVariables>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>configuration-store</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate-sources</goal>
+                        </goals>
+                        <configuration>
+                            <basePackage>src/main/</basePackage>
+                            <profile>configuration-store-deploy-v2</profile>
+                            <!-- The property variables below are passed to the Generation Context and utilized
+                                 to customize the deployment artifacts. -->
+                            <propertyVariables>
+                                <appName>configuration-store</appName>
+                            </propertyVariables>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>policy-decision-point</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate-sources</goal>
+                        </goals>
+                        <configuration>
+                            <basePackage>org.test</basePackage>
+                            <profile>policy-decision-point-deploy-v2</profile>
+                            <!-- The property variables below are passed to the Generation Context and utilized
+                                 to customize the deployment artifacts. -->
+                            <propertyVariables>
+                                <appName>policy-decision-point</appName>
+                            </propertyVariables>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>pipeline-invocation-service</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate-sources</goal>
+                        </goals>
+                        <configuration>
+                            <basePackage>org.test</basePackage>
+                            <profile>pipeline-invocation-service-v2</profile>
+                            <!-- The property variables below are passed to the Generation Context and utilized
+                                 to customize the deployment artifacts. -->
+                            <propertyVariables>
+                                <appName>pipeline-invocation-service</appName>
+                            </propertyVariables>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>s3-local</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate-sources</goal>
+                        </goals>
+                        <configuration>
+                            <basePackage>org.test</basePackage>
+                            <profile>s3local-deploy-v2</profile>
+                            <!-- The property variables below are passed to the Generation Context and utilized
+                                 to customize the deployment artifacts. -->
+                            <propertyVariables>
+                                <appName>s3-local</appName>
+                            </propertyVariables>
+                        </configuration>
+                    </execution>
+                    <!-- Add executions for each deployment module -->
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>${project.groupId}</groupId>
+                        <artifactId>test-483-final1-pipeline-models</artifactId>
+                        <version>${project.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <plugin>
+                <artifactId>maven-clean-plugin</artifactId>
+                <configuration>
+                    <filesets>
+                        <fileset>
+                            <directory>${basedir}/src/main/resources/apps/</directory>
+                            <includes>
+                                <include>**/target/**</include>
+                            </includes>
+                        </fileset>
+                    </filesets>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>clean-app-target-dirs</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>${group.helm.plugin}</groupId>
+                <artifactId>helm-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>resolve-dependencies</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>dependency-update</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>deploy</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>push</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <chartDirectory>${project.basedir}/src/main/resources/apps</chartDirectory>
+                    <uploadRepoStable>
+                        <name>${helm.publishing.repository.name}</name>
+                        <url>${helm.publishing.repository.url}</url>
+                    </uploadRepoStable>
+                    <uploadRepoSnapshot>
+                        <name>${helm.publishing.repository.name}</name>
+                        <url>${helm.publishing.repository.url}</url>
+                    </uploadRepoSnapshot>
+                    <helmExtraRepos>
+                        <helmRepo>
+                            <name>ghcr.io</name>
+                            <url>${aissemble.helm.repo}</url>
+                        </helmRepo>
+                    </helmExtraRepos>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.boozallen.aissemble</groupId>
+                <artifactId>mda-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-spark-application</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>copy-pipeline-artifacts</goal>
+                        </goals>
+                        <configuration>
+                            <targetPipelineTypes>
+                                <targetPipelineType>data-flow</targetPipelineType>
+                            </targetPipelineTypes>
+                            <targetArtifactTypes>
+                                <targetArtifactType>VALUES_FILES</targetArtifactType>
+                            </targetArtifactTypes>
+                            <outputDirectory>${project.basedir}/src/main/resources/apps/pipeline-invocation-service/target/</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+                <configuration>
+                    <groupId>${project.groupId}</groupId>
+                    <modelsArtifactId>${project.parent.artifactId}-pipeline-models</modelsArtifactId>
+                    <pipelinesDirectory>${project.parent.basedir}/${project.parent.artifactId}-pipelines/</pipelinesDirectory>
+                    <habushuArtifactVersion>${version.habushu.dist.artifact}</habushuArtifactVersion>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>${project.groupId}</groupId>
+                        <artifactId>${project.parent.artifactId}-pipeline-models</artifactId>
+                        <version>${project.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

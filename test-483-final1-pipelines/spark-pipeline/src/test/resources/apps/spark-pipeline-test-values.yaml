@@ -1,0 +1,12 @@
+sparkApp:
+  spec:
+    deps:
+      packages:
+        - mysql:mysql-connector-java:8.0.30
+        - io.delta:delta-spark_2.12:3.2.1
+        - io.delta:delta-storage:3.2.1
+    sparkConf:
+      spark.sql.extensions: "io.delta.sql.DeltaSparkSessionExtension"
+      spark.sql.catalog.spark_catalog: "org.apache.spark.sql.delta.catalog.DeltaCatalog"
+      spark.driver.host: "localhost"
+      spark.master: "local[*]"

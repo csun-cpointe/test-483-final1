@@ -1,0 +1,22 @@
+########################################
+## CONFIG | Configuration Store Configs
+## See aiSSEMBLE aissemble-configuration-store-chart: README for more details.
+## https://github.com/boozallen/aissemble/
+########################################
+
+aissemble-configuration-store-chart:
+  aissemble-quarkus-chart:
+    deployment:
+      image:
+        imagePullPolicy: IfNotPresent
+    service:
+      type: LoadBalancer
+
+  # Update 'volumePathOnNode' with the absolute path of the config files to be loaded into the configuration store. 
+  # Example '/Users/MyUser/my-project/resources/configs'
+  #
+  # For WSL users, the configuration files need to be in an accessible path.
+  # Example: '/mnt/c' or '/mnt/wsl/rancher-desktop'
+  configurationVolume:
+    storageType: "local"
+    volumePathOnNode: "/update/this/path"

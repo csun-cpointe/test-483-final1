@@ -1,0 +1,6 @@
+dependencies:
+- name: aissemble-configuration-store-chart
+  repository: oci://ghcr.io/boozallen
+  version: 1.11.0-SNAPSHOT
+digest: sha256:f8902ad01041e4ae979b3418de5f2598cbf0427fece109541098b19e71b06f32
+generated: "2024-12-03T12:05:06.724061-08:00"
